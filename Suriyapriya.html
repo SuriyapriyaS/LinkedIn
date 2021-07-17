@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LinkedIn</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      body {
+        background-color: #f3f2ef;
+      }
+
+      .navbar {
+        background-color: white;
+        width: 100vw;
+        height: 60px;
+        border-bottom: 1px solid #00000014;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      .nav-content {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+
+      .nav-img {
+        margin-left: 18%;
+        color: #0a66c2;
+      }
+
+      .nav-search {
+        height: 35px;
+        width: 270px;
+        margin-left: 7px;
+        border: none;
+        border-radius: 4px;
+        background-color: #eef3f8;
+        text-indent: 12px;
+      }
+
+      .navigation {
+        margin-left: 12%;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-icon {
+        text-decoration: none;
+        color: #666;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 20px;
+        margin-right: 7px;
+        font-size: 12px;
+        font-weight: 300;
+      }
+
+      .main {
+        height: 100%;
+        display: flex;
+        margin: 0 auto;
+        margin-top: 70px;
+        max-width: 80%;
+      }
+
+      .left {
+        background-color: white;
+        border: 1px solid black;
+        width: 225px;
+        height: 300px;
+        margin-top: 35px;
+        border-radius: 8px;
+        border: 1px solid #aaa;
+      }
+
+      .center {
+        /* border: 1px solid black; */
+        flex-grow: 1;
+        margin-top: 35px;
+        margin-left: 25px;
+      }
+
+      .right {
+        width: 300px;
+        margin-top: 35px;
+      }
+
+      .create-posts {
+        background-color: white;
+        height: 120px;
+        width: 540px;
+        border: 1px solid #6e6e6e42;
+        border-radius: 5px;
+      }
+
+      .post-image {
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+
+      .create-post-top {
+        display: flex;
+      }
+
+      .post-input {
+        height: 40px;
+        flex: 1;
+        border-radius: 25px;
+        border: 1px solid #aaa;
+        margin: 14px;
+        text-indent: 15px;
+      }
+      .create-post-bottom {
+        display: flex;
+        justify-content: space-around;
+      }
+      .post-button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        color: #00000099;
+      }
+
+      .mr-10 {
+        margin-right: 10px;
+      }
+
+      .blue-button {
+        color: #70b5f9;
+      }
+      .green-button {
+        color: #7fc15e;
+      }
+      .orange-button {
+        color: #e7a33e;
+      }
+      .pink-button {
+        color: #f89295;
+      }
+
+      .posts-hr {
+        border-top: 1px solid #000000aa;
+        margin-top: 30px;
+        border-color: #00000033;
+      }
+
+      .post {
+        background-color: white;
+        border: 1px solid #6e6e6e;
+        border-color: #6e6e6e42;
+        margin-top: 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      .post-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .post-metadata {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-top: 7px;
+        line-height: 1.3rem;
+      }
+      .post-creator {
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .faded-text {
+        font-size: small;
+        color: #00000099;
+      }
+
+      .post-data {
+        font-size: 15px;
+        color: rgb(98, 97, 97);
+        margin-left: 15px;
+        margin-top: 10px;
+      }
+
+      .read-more {
+        margin-left: 447px;
+        margin-top: 12px;
+        color: #00000099;
+      }
+      .read-more2 {
+        font-size: small;
+        font-weight: 500;
+        margin-left: 187px;
+        margin-top: -43px;
+        color: #0a66c2;
+      }
+      .read-more3 {
+        font-size: small;
+        font-weight: 500;
+        margin-left: 187px;
+        margin-top: 8px;
+        color: #0a66c2;
+      }
+
+
+      .likes {
+        font-size: small;
+        color: #0a66c2;
+        margin-left: 15px;
+        margin-top: 10px;
+      }
+
+      .center-content {
+        display: flex;
+        align-items: center;
+      }
+
+      .no-likes {
+        font-size: small;
+        margin-left: 5px;
+        margin-top: 10px;
+        color: #00000099;
+      }
+
+      .interaction-button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        margin-right: 12px;
+        margin-bottom: 10px;
+        color: #00000099;
+        margin-left: 7px;
+      }
+
+      .likes-hr {
+        border-top: 1px solid #000000aa;
+        margin-top: 12px;
+        margin-bottom: 10px;
+        border-color: #00000033;
+      }
+
+      .post-interactions {
+        display: flex;
+      }
+
+      .post-content-image {
+        margin-top: 10px;
+        width: 100%;
+      }
+      .post-content-image1 {
+        margin-top: 10px;
+        width: 100%;
+      }
+      .lt-wt {
+        background-color: white;
+        border: 1px solid #6e6e6e;
+        border-color: #6e6e6e42;
+        margin-top: 0 px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      .create-left {
+        background-color: white;
+        height: 300px;
+        width: 222px;
+        border: 1px solid #6e6e6e42;
+        border-radius: 5px;
+        margin-top: 0px;
+      }
+      .left-image {
+        height: 66px;
+        width: 66px;
+        border-radius: 50%;
+        margin-top: 30px;
+        position: absolute;
+        margin-left: -148px;
+      }
+      .left-creator {
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .faded-left {
+        font-size: small;
+        color: #00000099;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+      .left-news {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 8px;
+      }
+      .faded-left1 {
+        font-size: small;
+        font-weight: 500;
+        color: #00000099;
+        margin-top: 8px;
+        margin-left: 5px;
+      }
+      .left-hr {
+        border-top: 1px solid #000000aa;
+        margin-top: 30px;
+        border-color: #00000033;
+      }
+      .rt-wt {
+        background-color: white;
+        border: 1px solid #6e6e6e;
+        border-color: #6e6e6e42;
+        margin-top: 0 px;
+        margin-left: -40px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      .rt-info {
+        display: flex;
+        align-items: center;
+      }
+      .right-metadata {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5px;
+        margin-top: 1px;
+        line-height: 1.3rem;
+      }
+      .right-creator {
+        font-size: 17px;
+        font-weight: 500;
+        margin-top: 10px;
+        margin-left: 7px;
+      }
+      .right-news {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 8px;
+        margin-left:6px ;
+      }
+      .faded-right {
+        font-size: small;
+        color: #00000099;
+        margin-left:23px ;
+      }
+      .faded-right1 {
+        font-size: 14px;
+        color: #00000099;
+        font-weight: 500;
+        margin-top: 6px;
+        margin-left: 8px;
+        margin-bottom: 12px;
+      }
+      .rt-course {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 8px;
+      }
+      .info1 {
+        font-size: medium;
+        margin-left: 134px;
+        margin-top: 0px;
+      }
+      .info {
+        font-size: medium;
+        margin-left: 171px;
+        margin-top: 0px;
+      }
+      .arrow {
+        font-size: large;
+        margin-left: 3px;
+        margin-top: 0px;
+      }
+      .arrow1 {
+        font-size: large;
+        margin-left: 3px;
+        margin-top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-content">
+        <div class="nav-img">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="34"
+            height="34"
+            viewBox="0 0 34 34"
+            class="nav-logo"
+          >
+            <g>
+              <path
+                d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z"
+                fill="currentColor"
+              ></path>
+            </g>
+          </svg>
+        </div>
+        <input class="nav-search" type="text" placeholder="Search" />
+        <nav class="navigation">
+          <a class="nav-icon">
+            <span class="material-icons"> home </span> Home
+          </a>
+          <a class="nav-icon">
+            <span class="material-icons"> people </span> My Network
+          </a>
+          <a class="nav-icon">
+            <span class="material-icons"> work </span> Jobs
+          </a>
+          <a class="nav-icon">
+            <span class="material-icons">sms</span> Messaging 
+          </a>
+          <a class="nav-icon">
+            <span class="material-icons"> notifications </span> Notifications
+          </a>
+          <a class="nav-icon">
+            <span class="material-icons">account_circle</span> Me
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main">
+      <div class="left">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2048 512"
+          id="person-default"
+          data-supported-dps="2048x512"
+        >
+          <path fill="none" d="M0 0h2048v512H0z" />
+          <path fill="#dbe7e9" d="M0 0h2048v512H0z" />
+          <path fill="#bfd3d6" d="M1408 0h640v512h-640z" />
+          <path
+            d="M1236.29 0H0v512h1236.29a771.52 771.52 0 000-512z"
+            fill="#a0b4b7"
+          />
+        </svg>
+        <img class="left-image" src="./user.jpeg" />
+        <div class="left-creator">Suriyapriya S</div>
+        <div class="faded-left">Bio-Medical Engineer</div> 
+        <div class="likes-hr"></div>
+        <div class="faded-left1">Who viewed your profile </div>
+        <div class="faded-left1">Connections</div>
+        <div class="read-more2">100</div>
+        <div class="read-more3">500+</div>
+      </div>
+
+      <div class="left-hr"></div>
+        
+      <div class="center">
+        <div class="create-posts">
+          <div class="create-post-top">
+            <img class="post-image" src="./user.jpeg" />
+            <input placeholder="Start a post" class="post-input" type="text" />
+          </div>
+          <div class="create-post-bottom">
+            <button class="post-button">
+              <span class="material-icons blue-button mr-10"> image </span>
+              Photo
+            </button>
+            <button class="post-button">
+              <span class="material-icons green-button mr-10">
+                play_circle_filled
+              </span>
+              Video
+            </button>
+            <button class="post-button">
+              <span class="material-icons orange-button mr-10"> event </span>
+              Event
+            </button>
+            <button class="post-button">
+              <span class="material-icons pink-button mr-10"> article </span>
+              Write article
+            </button>
+          </div>
+
+          <div class="posts-hr"></div>
+
+          <div class="post">
+            <div class="post-info">
+              <img class="post-image" src="./user.jpeg" />
+
+              <div class="post-metadata">
+                <div class="post-creator">Suriyapriya S</div>
+                <div class="faded-text">3,113 followers</div>
+                <div class="faded-text">
+                  2d • <span class="material-icons faded-text"> public </span>
+                </div>
+              </div>
+            </div>
+            <div class="post-data">
+              Here's to all the brilliant Engineers, Designers and Programmers
+              who made using social media so easy, even kids can do it
+              effortlessly.
+            </div>
+
+            <div class="read-more">...see more</div>
+            <div>
+              <img
+                class="post-content-image"
+                src="./sm.jpg"
+                alt=""
+              />
+            </div>
+            <div class="center-content">
+              <span class="material-icons likes"> thumb_up </span>
+              <span class="no-likes">374 • 10 comments</span>
+            </div>
+            <div class="likes-hr"></div>
+            <div class="post-interactions">
+              <button class="interaction-button">
+                <span class="material-icons mr-10"> thumb_up </span>Like
+              </button>
+              <button class="interaction-button">
+                <span class="material-icons mr-10"> chat </span>Comment
+              </button>
+              <button class="interaction-button">
+                <span class="material-icons mr-10"> share </span>Share
+              </button>
+              <button class="interaction-button">
+                <span class="material-icons mr-10"> send </span>Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="rt-wt">
+            <div class="rt-info"></div>
+          <div class="right-metadata">
+            <div class="right-creator">
+              LinkedIn News <span class="material-icons info">info </span>
+            </div>
+            <div class="right-news">🞇  Flying cars by the end of the decade</div>
+            <div class="faded-right">2d ago • 2693 readers</div>
+            <div class="right-news">🞇  Is the job markets reviving?</div>
+            <div class="faded-right">1d ago • 2573 readers</div>
+            <div class="right-news">🞇  The pandemic's impact</div>
+            <div class="faded-right">1d ago • 3453 readers</div>
+            <div class="right-news">🞇  Gates' $2.1B gift for gender equality</div>
+            <div class="faded-right">1d ago • 4563 readers</div>
+            <div class="right-news">🞇  Vaccination drive ends by 2023</div>
+            <div class="faded-right">3d ago • 5673 readers</div>
+          <div class="faded-right1">Show more <span class="material-icons arrow">expand_more</span></div>
+          
+          </div>
+        </div>
+        <div class="post-content-image1">
+
+        </div>
+        <div class="rt-wt">
+          <div class="rt-info"></div>
+        <div class="right-metadata">
+          <div class="right-creator">
+            Today's top Courses<span class="material-icons info1"> info </span></div>
+          <div class="right-news">1. DevOps Foundation</div>
+          <div class="faded-right">James wickett </div>
+          <div class="right-news">2. Unconscious bias</div>
+          <div class="faded-right">Stacey gordan</div>
+          <div class="right-news">3. Speaking confidently and effectively</div>
+          <div class="faded-right">John Hopkins</div>
+        <div class="faded-right1">
+          Show more on LinkedIn Learning <span class="material-icons arrow1">arrow_forward</span></div>
+      </div>
+    </div>
+  </body>
+</html>
